@@ -1,0 +1,274 @@
+/* Asdale Dynamics, LLC — AI for College Students site */
+/* Plain, warm, polished, beginner-friendly */
+
+:root {
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --paper: #ffffff;
+  --soft: #f3f4f6;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --line: #e5e7eb;
+  --border-radius: 8px;
+  --max-width: 720px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--soft);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.site {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: var(--paper);
+  border-bottom: 1px var(--line) solid;
+  padding: 1rem 1.5rem;
+}
+
+header .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site-title a { color: var(--ink); text-decoration: none; }
+
+.site-sub {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Nav */
+nav {
+  background: var(--paper);
+  border-bottom: 1px var(--line) solid;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border: 1px var(--line) solid;
+  border-top: none;
+}
+
+nav li { flex: 1 1 140px; }
+nav a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  border-right: 1px var(--line) solid;
+  font-size: 0.95rem;
+}
+nav a:hover, nav a:focus { background: var(--accent-soft); color: var(--accent); outline: none; }
+
+/* Main */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+main h1 {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+main h2 {
+  font-size: 1.25rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+main h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.4rem;
+}
+
+main p { margin: 0 0 1rem; }
+main ul, main ol { margin: 0.5rem 0 1.25rem; padding-left: 1.4rem; }
+main li { margin-bottom: 0.35rem; }
+
+main code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--soft);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+main pre {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+main pre code { background: transparent; color: inherit; padding: 0; font-size: 0.9em; }
+
+.callout {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  padding: 1rem;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin: 1.25rem 0;
+}
+.callout p { margin: 0; }
+
+footer {
+  background: var(--paper);
+  border-top: 1px var(--line) solid;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+footer .inner { max-width: var(--max-width); margin: 0 auto; color: var(--muted); font-size: 0.875rem; }
+footer .inner p { margin: 0.25rem 0; }
+
+/* Planner page */
+.planner-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 2rem auto;
+  background: var(--paper);
+  padding: 18mm 16mm 14mm;
+  box-shadow: 0 0 0 1px var(--line);
+  font-size: 9.5pt;
+  border-radius: 0;
+}
+@page { size: A4; margin: 0; }
+
+.planner-sheet header {
+  border: none;
+  padding: 0;
+  margin-bottom: 8mm;
+  text-align: center;
+}
+.planner-sheet .site-title { font-size: 14pt; margin: 0; }
+.planner-sheet .site-sub { font-size: 8pt; color: var(--muted); margin: 1mm 0 0; }
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3mm;
+  margin-bottom: 6mm;
+}
+.day {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 3mm 3mm 2mm;
+  background: var(--soft);
+}
+.day .day-name {
+  font-weight: 700;
+  font-size: 9pt;
+  margin-bottom: 2mm;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.day ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.day li {
+  padding: 1.6mm 0;
+  border-bottom: 1px dashed #cbd5e1;
+}
+.day li:last-child { border-bottom: none; }
+
+.planner-notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  margin-top: 4mm;
+}
+.note-box {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 4mm;
+  background: var(--soft);
+}
+.note-box .label {
+  font-weight: 700;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2mm;
+  display: block;
+}
+.note-box .lines {
+  display: grid;
+  gap: 3mm;
+}
+.line-row {
+  border-bottom: 1px solid #9ca3af;
+  padding-bottom: 1mm;
+  height: 9mm;
+}
+
+.print-hint {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media print {
+  body { background: var(--paper); }
+  .site, header, nav, footer, .print-hint { display: none !important; }
+  main { padding: 0; max-width: 100%; }
+  .planner-sheet {
+    width: 100%;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    padding: 16mm 14mm 12mm;
+  }
+  .planner-sheet header { display: block; }
+  .planner-grid { break-inside: avoid; }
+  .day { break-inside: avoid; page-break-inside: avoid; }
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  nav li { flex-basis: 100%; }
+  nav a { border-right: none; border-bottom: 1px var(--line) solid; }
+}
